@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
@@ -43,7 +43,7 @@
             font-size: 14px;
         }
 
-        /* Banner Creativo con Degradado y Textura */
+        /* Banner Creativo */
         .hero-banner {
             background: linear-gradient(135deg, rgba(45,138,86,0.92) 0%, rgba(76,175,80,0.85) 100%),
                         url('https://www.transparenttextures.com/patterns/leaf.png'),
@@ -95,7 +95,6 @@
             box-sizing: border-box;
         }
 
-        /* BOTÓN CORREGIDO PARA THYMELEAF */
         .btn-enviar {
             background-color: var(--verde-eco);
             color: white;
@@ -116,10 +115,10 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* Sección de Ubicaciones estilo solicitado */
+        /* Sección de Ubicaciones */
         .ubicaciones-section {
             max-width: 1100px;
-            margin: 0 auto 80px;
+            margin: 0 auto 40px;
             padding: 0 20px;
         }
 
@@ -169,6 +168,55 @@
             overflow: hidden;
         }
 
+        /* Estilos para el Cuadro de Datos Personales */
+        .datos-personales-container {
+            max-width: 1100px;
+            margin: 40px auto 80px;
+            padding: 0 20px;
+        }
+
+        .card-datos {
+            background-color: white;
+            border-left: 6px solid var(--verde-eco);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .card-datos h2 {
+            color: var(--verde-eco);
+            margin-top: 0;
+            font-size: 22px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .info-item strong {
+            color: var(--azul-texto);
+        }
+
+        .gustos-section {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+            color: #555;
+            font-style: italic;
+        }
+
         @media (max-width: 768px) {
             .form-grid, .grid-ubicaciones { grid-template-columns: 1fr; }
             .hero-banner h1 { font-size: 2rem; padding: 10px 20px; }
@@ -214,7 +262,7 @@
             <p>PBX: +502 2381-2850</p>
             <a href="https://waze.com/ul?q=Zona+9+Guatemala" class="waze-link">WAZE</a>
             <div class="mapa-contenedor">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.123456789!2d-90.518!3d14.615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3b!2sZona%209!5e0!3m2!1ses!2sgt!4v123456789"
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3860.97237303357!2d-90.5186526!3d14.6151606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a30f30526e0d%3A0x6a2c30089c16238b!2sZona%209%2C%20Guatemala!5e0!3m2!1ses!2sgt!4v1700000000000"
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
@@ -226,9 +274,30 @@
             <p>PBX: +502 2381-2848</p>
             <a href="https://waze.com/ul?q=Zona+11+Guatemala" class="waze-link">WAZE</a>
             <div class="mapa-contenedor">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.123456789!2d-90.555!3d14.595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3b!2sZona%2011!5e0!3m2!1ses!2sgt!4v123456789"
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3861.321458921!2d-90.5516!3d14.5912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a19c50000001%3A0x123456789abcdef!2sZona%2011%2C%20Guatemala!5e0!3m2!1ses!2sgt!4v1700000000000"
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="datos-personales-container">
+    <div class="card-datos">
+        <h2>Datos personales</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <p><strong>Nombre:</strong> Ernesto Dalessandro De La Rosa Santos</p>
+                <p><strong>Carné:</strong> 2025114</p>
+                <p><strong>Correo:</strong> edelarosa-2025114@kinal.edu.gt</p>
+            </div>
+            <div class="info-item">
+                <p><strong>Código Académico:</strong> PE5EM</p>
+                <p><strong>Código Técnico:</strong> IN5BM</p>
+                <p><strong>Teléfono:</strong> 30698759</p>
+            </div>
+        </div>
+        <div class="gustos-section">
+            <p><strong>Cosa que me gusta hacer:</strong> Jugar futbol y jugar videojuegos ⚽🎮</p>
         </div>
     </div>
 </div>
