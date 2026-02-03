@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosotros - EcoCompras</title>
     <style>
-        /* RESET Y VARIABLES */
         * {
             margin: 0;
             padding: 0;
@@ -15,7 +14,7 @@
 
         :root {
             --verde: #2e7d32;
-            --verde-navbar: #2d8a56; /* El verde de tu barra oficial */
+            --verde-navbar: #2d8a56;
             --verde-claro: #e8f5e9;
             --verde-gradiente: linear-gradient(135deg, #2e7d32, #4caf50);
             --gris: #444;
@@ -29,7 +28,6 @@
             line-height: 1.6;
         }
 
-        /* NAVBAR OFICIAL */
         .navbar {
             background-color: var(--verde-navbar);
             padding: 15px 5%;
@@ -58,7 +56,6 @@
             text-decoration: underline;
         }
 
-        /* HEADER NOSOTROS */
         .header-nosotros {
             background: var(--verde-gradiente);
             color: white;
@@ -76,7 +73,6 @@
             margin-bottom: 1rem;
         }
 
-        /* SECCIONES Y STATS */
         section {
             max-width: 1100px;
             margin: 4rem auto;
@@ -127,6 +123,27 @@
             color: var(--verde);
             margin-top: 1rem;
         }
+
+        .valores ul {
+            list-style: none;
+        }
+
+        .valores li {
+            background: var(--verde-claro);
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            color: var(--verde);
+            font-weight: 500;
+        }
+
+        .footer-nosotros {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
     </style>
 </head>
 <body>
@@ -155,8 +172,9 @@
 <section class="intro">
     <h2>¿Qué es EcoCompras?</h2>
     <p>
-        EcoCompras es una plataforma de comercio electrónico intuitiva, rápida y accesible para usuarios en Guatemala.
-        Conectamos compradores con una amplia variedad de productos, precios competitivos y una experiencia digital moderna.
+        EcoCompras es una plataforma de comercio electrónico diseñada para brindar una experiencia de compra
+        intuitiva, rápida y accesible para usuarios en Guatemala. Conectamos compradores con una amplia variedad
+        de productos, precios competitivos y una experiencia digital moderna.
     </p>
 </section>
 
@@ -178,17 +196,27 @@
 <section class="mision-vision">
     <div class="card">
         <h3>Misión</h3>
-        <p>
-            Facilitar el acceso a productos variados mediante una plataforma local y mejorar la experiencia de compra en línea.
-        </p>
+        <p>Facilitar el acceso a productos variados mediante una plataforma confiable que impulse el comercio local y mejore la experiencia de compra en línea.</p>
     </div>
     <div class="card">
         <h3>Visión</h3>
-        <p>
-            Convertirnos en el marketplace preferido en Guatemala, reconocido por su innovación, facilidad de uso y atención al cliente.
-        </p>
+        <p>Convertirnos en el marketplace preferido en Guatemala, reconocido por su innovación, facilidad de uso y atención al cliente.</p>
     </div>
 </section>
+
+<section class="valores">
+    <h2>Nuestros Valores</h2>
+    <ul>
+        <li>✅ Accesibilidad y facilidad de uso</li>
+        <li>✅ Confianza y seguridad en cada compra</li>
+        <li>✅ Variedad y calidad de productos</li>
+        <li>✅ Atención al cliente cercana</li>
+    </ul>
+</section>
+
+<footer class="footer-nosotros">
+    <p>EcoCompras &copy; 2026 · Marketplace para Guatemala</p>
+</footer>
 
 </body>
 </html>
