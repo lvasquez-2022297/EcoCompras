@@ -6,7 +6,6 @@
     <title>Eco-Compras | Carros</title>
 
     <style>
-        /* Barra superior verde (encabezado) */
         .header-eco {
             background-color: #2e7d32;
             color: white;
@@ -38,14 +37,12 @@
             font-size: 14px;
         }
 
-        /* Contenedor de las tarjetas de carros */
         .lista-carros {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
         }
 
-        /* Tarjeta individual de cada carro */
         .tarjeta {
             border: 1px solid #ddd;
             padding: 15px;
@@ -55,7 +52,6 @@
             border-radius: 6px;
         }
 
-        /* Espacio donde iría la imagen del carro */
         .foto-placeholder {
             background: #f0f0f0;
             height: 120px;
@@ -75,7 +71,6 @@
             margin: 10px 0;
         }
 
-        /* Botones */
         button {
             background-color: #2e7d32;
             color: white;
@@ -91,7 +86,6 @@
             background-color: #1b5e20;
         }
 
-        /* Sección donde se muestra lo agregado */
         .seccion-carrito {
             margin-top: 35px;
             border-top: 2px solid #eee;
@@ -107,7 +101,6 @@
 
 <body>
 
-    <!-- Encabezado superior -->
     <div class="header-eco">
         <strong>🌱 ECO-COMPRAS</strong>
         <span>Inicio | Productos | Contacto</span>
@@ -117,10 +110,8 @@
         <h1>Carros usados en venta</h1>
         <p class="subtitulo">Elegí un carro que te guste y agregalo a tu lista.</p>
 
-        <!-- Lista de carros disponibles -->
         <div class="lista-carros">
 
-            <!-- Carro 1 -->
             <div class="tarjeta">
                 <div class="foto-placeholder">Foto de Toyota Corolla</div>
                 <strong>Toyota Corolla</strong>
@@ -128,7 +119,6 @@
                 <button onclick="agregar('Toyota Corolla', 35000)">Me interesa</button>
             </div>
 
-            <!-- Carro 2 -->
             <div class="tarjeta">
                 <div class="foto-placeholder">Foto de Honda Civic</div>
                 <strong>Honda Civic</strong>
@@ -138,7 +128,6 @@
 
         </div>
 
-        <!-- Sección donde se muestran los carros seleccionados -->
         <div class="seccion-carrito">
             <h3>🛒 Carros que te interesan:</h3>
             <ul id="lista-compra"></ul>
@@ -148,10 +137,8 @@
     </div>
 
     <script>
-        // Total acumulado de los carros agregados
         let total = 0;
 
-        // Función para agregar un carro a la lista
         function agregar(nombre, precio) {
             total += precio;
             document.getElementById("total-val").innerText = total.toLocaleString();
