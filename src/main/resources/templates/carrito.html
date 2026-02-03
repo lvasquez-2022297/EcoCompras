@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Eco-Compras | Carros</title>
+
+    <style>
+        /* Barra superior verde (encabezado) */
+        .header-eco {
+            background-color: #2e7d32;
+            color: white;
+            padding: 15px 20px;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #333;
+            background-color: #f7f7f7;
+        }
+
+        .contenido {
+            padding: 25px;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        .subtitulo {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        /* Contenedor de las tarjetas de carros */
+        .lista-carros {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Tarjeta individual de cada carro */
+        .tarjeta {
+            border: 1px solid #ddd;
+            padding: 15px;
+            width: 230px;
+            text-align: center;
+            background: white;
+            border-radius: 6px;
+        }
+
+        /* Espacio donde iría la imagen del carro */
+        .foto-placeholder {
+            background: #f0f0f0;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #bbb;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .precio-texto {
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* Botones */
+        button {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
+        }
+
+        /* Sección donde se muestra lo agregado */
+        .seccion-carrito {
+            margin-top: 35px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+
+        #lista-compra {
+            padding-left: 18px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Encabezado superior -->
+    <div class="header-eco">
+        <strong>🌱 ECO-COMPRAS</strong>
+        <span>Inicio | Productos | Contacto</span>
+    </div>
+
+    <div class="contenido">
+        <h1>Carros usados en venta</h1>
+        <p class="subtitulo">Elegí un carro que te guste y agregalo a tu lista.</p>
+
+        <!-- Lista de carros disponibles -->
+        <div class="lista-carros">
+
+            <!-- Carro 1 -->
+            <div class="tarjeta">
+                <div class="foto-placeholder">Foto de Toyota Corolla</div>
+                <strong>Toyota Corolla</strong>
+                <div class="precio-texto">Q35,000</div>
+                <button onclick="agregar('Toyota Corolla', 35000)">Me interesa</button>
+            </div>
+
+            <!-- Carro 2 -->
+            <div class="tarjeta">
+                <div class="foto-placeholder">Foto de Honda Civic</div>
+                <strong>Honda Civic</strong>
+                <div class="precio-texto">Q48,000</div>
+                <button onclick="agregar('Honda Civic', 48000)">Me interesa</button>
+            </div>
+
+        </div>
+
+        <!-- Sección donde se muestran los carros seleccionados -->
+        <div class="seccion-carrito">
+            <h3>🛒 Carros que te interesan:</h3>
+            <ul id="lista-compra"></ul>
+            <p><strong>Total aproximado: Q<span id="total-val">0</span></strong></p>
+        </div>
+
+    </div>
+
+    <script>
+        // Total acumulado de los carros agregados
+        let total = 0;
+
+        // Función para agregar un carro a la lista
+        function agregar(nombre, precio) {
+            total += precio;
+            document.getElementById("total-val").innerText = total.toLocaleString();
+
+            let lista = document.getElementById("lista-compra");
+            let item = document.createElement("li");
+            item.innerText = nombre + " - Q" + precio.toLocaleString();
+            lista.appendChild(item);
+        }
+    </script>
+
+</body>
+
+</html>
