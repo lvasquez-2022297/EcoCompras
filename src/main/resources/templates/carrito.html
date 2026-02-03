@@ -6,7 +6,8 @@
     <title>Carrito - ECO-COMPRAS</title>
     <style>
         :root {
-            --verde-navbar: #2d8a56; /* El verde exacto de tu barra */
+            --verde-navbar: #2d8a56; /* Verde oficial de la barra */
+            --verde-botones: #2e7d32;
             --fondo-gris: #f4f7f6;
         }
 
@@ -15,9 +16,9 @@
             margin: 0;
             padding: 0;
             background-color: var(--fondo-gris);
+            color: #333;
         }
 
-        /* BARRA DE NAVEGACIÓN */
         .navbar {
             background-color: var(--verde-navbar);
             padding: 15px 5%;
@@ -44,16 +45,15 @@
             color: white;
             text-decoration: none;
             font-size: 0.95rem;
-            transition: opacity 0.3s;
         }
 
-        .nav-links a:hover {
-            text-decoration: underline;
+        .active-link {
+            border-bottom: 2px solid white;
+            padding-bottom: 3px;
         }
 
-        /* CONTENEDOR PRINCIPAL */
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 40px auto;
             background: white;
             padding: 30px;
@@ -61,37 +61,71 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        /* APARTADO DE INTERÉS */
-        .seccion-interes {
+        .lista-carros {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
             margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
         }
 
-        .interes-header {
+        .tarjeta {
+            border: 1px solid #ddd;
+            padding: 15px;
+            width: 230px;
+            text-align: center;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .foto-placeholder {
+            background: #f0f0f0;
+            height: 120px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #333;
+            justify-content: center;
+            border: 1px dashed #bbb;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: #777;
         }
 
-        .total-box {
-            margin-top: 10px;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #444;
+        .precio-texto {
+            color: var(--verde-botones);
+            font-weight: bold;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .btn-interesa {
+            background-color: var(--verde-botones);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .seccion-carrito {
+            margin-top: 35px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+
+        #lista-compra {
+            padding-left: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
         }
 
         .btn-vaciar {
-            margin-top: 20px;
             background-color: #e74c3c;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 5px 15px;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 12px;
         }
     </style>
 </head>
@@ -104,59 +138,6 @@
     <div class="nav-links">
         <a href="/">Inicio</a>
         <a href="/productos">Productos</a>
-        <a href="/carrito" style="border-bottom: 2px solid white; padding-bottom: 3px;">Carrito</a>
+        <a href="/carrito" class="active-link">Carrito</a>
         <a href="/nosotros">Nosotros</a>
-        <a href="/contacto">Contacto</a>
-    </div>
-</nav>
-
-<div class="container">
-    <h2>Mi Carrito</h2>
-    <p style="color: #666;">Aquí aparecerán los productos que selecciones en el catálogo.</p>
-
-    <div id="lista-productos">
-    </div>
-
-    <div class="seccion-interes">
-        <div class="interes-header">
-            <span>🛒</span> Productos que te interesan:
-        </div>
-        <div class="total-box" id="total-estimado">
-            Total aproximado: Q0
-        </div>
-        <button class="btn-vaciar" onclick="vaciarCarrito()">Limpiar lista</button>
-    </div>
-</div>
-
-<script>
-    function cargarCarrito() {
-        const contenedor = document.getElementById('lista-productos');
-        const totalTexto = document.getElementById('total-estimado');
-        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        let suma = 0;
-
-        contenedor.innerHTML = '';
-
-        carrito.forEach(item => {
-            contenedor.innerHTML += `
-                <div style="display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px dashed #ddd;">
-                    <span>${item.nombre}</span>
-                    <strong>Q${item.precio}</strong>
-                </div>`;
-            suma += item.precio;
-        });
-
-        totalTexto.innerText = "Total aproximado: Q" + suma;
-    }
-
-    function vaciarCarrito() {
-        localStorage.removeItem('carrito');
-        cargarCarrito();
-    }
-
-    // Inicializar al cargar la página
-    window.onload = cargarCarrito;
-</script>
-
-</body>
-</html>
+        <a href="/contacto">
