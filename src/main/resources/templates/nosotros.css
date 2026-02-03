@@ -20,7 +20,6 @@ body {
     line-height: 1.6;
 }
 
-/* HEADER */
 .header-nosotros {
     background: var(--verde-gradiente);
     color: white;
@@ -43,7 +42,6 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* BOTONES */
 .btn-principal,
 .btn-secundario {
     display: inline-block;
@@ -63,7 +61,6 @@ body {
     color: white;
 }
 
-/* SECCIONES */
 section {
     max-width: 1100px;
     margin: 4rem auto;
@@ -75,7 +72,6 @@ h2 {
     margin-bottom: 1rem;
 }
 
-/* STATS */
 .stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -95,7 +91,6 @@ h2 {
     color: var(--verde);
 }
 
-/* MISION / VISION */
 .mision-vision {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -119,7 +114,6 @@ h2 {
     margin-bottom: 0.8rem;
 }
 
-/* VALORES */
 .valores ul {
     list-style: none;
     max-width: 600px;
@@ -132,7 +126,6 @@ h2 {
     border-radius: 10px;
 }
 
-/* CTA */
 .cta {
     background-color: var(--verde-claro);
     text-align: center;
@@ -144,7 +137,6 @@ h2 {
     margin: 1rem 0 1.5rem;
 }
 
-/* FOOTER */
 .footer-nosotros {
     background-color: #1b5e20;
     color: white;
