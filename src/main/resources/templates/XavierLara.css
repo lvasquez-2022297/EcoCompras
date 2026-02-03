@@ -1,0 +1,84 @@
+/* RESETEO GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* VARIABLES DE COLOR */
+:root {
+    --verde: #2e7d32;
+    --verde-claro: #e8f5e9;
+    --verde-gradiente: linear-gradient(135deg, #2e7d32, #4caf50);
+    --gris: #444;
+    --fondo: #f9fafb;
+    --blanco: #ffffff;
+}
+
+/* BODY */
+body {
+    background-color: var(--fondo);
+    color: var(--gris);
+    line-height: 1.6;
+    padding: 0 1.5rem;
+}
+
+/* HEADER */
+header {
+    background: var(--verde-gradiente);
+    color: white;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* SECCIONES */
+section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+section h2 {
+    color: var(--verde);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+/* PÁRRAFOS */
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* DATOS PERSONALES */
+section p strong {
+    color: var(--verde);
+}
+
+/* GUSTOS / INTERESES */
+section:nth-of-type(2) p {
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #1b5e20;
+    color: white;
+    margin-top: 2rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+}
