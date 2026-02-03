@@ -9,6 +9,14 @@
             --verde-navbar: #2d8a56; /* Verde oficial de la barra */
             --verde-botones: #2e7d32;
             --fondo-gris: #f4f7f6;
+        .header-eco {
+            background-color: #2e7d32;
+            color: white;
+            padding: 15px 20px;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         body {
@@ -96,8 +104,13 @@
             margin: 10px 0;
         }
 
+
         .btn-interesa {
             background-color: var(--verde-botones);
+
+        button {
+            background-color: #2e7d32;
+feature/carrito
             color: white;
             border: none;
             padding: 8px 15px;
@@ -106,6 +119,12 @@
             border-radius: 4px;
         }
 
+
+        button:hover {
+            background-color: #1b5e20;
+        }
+
+ feature/carrito
         .seccion-carrito {
             margin-top: 35px;
             border-top: 2px solid #eee;
@@ -131,6 +150,7 @@
 </head>
 <body>
 
+
 <nav class="navbar">
     <div class="navbar-brand">
         <span>🌱</span> ECO-COMPRAS
@@ -141,3 +161,55 @@
         <a href="/carrito" class="active-link">Carrito</a>
         <a href="/nosotros">Nosotros</a>
         <a href="/contacto">
+    <div class="header-eco">
+        <strong>🌱 ECO-COMPRAS</strong>
+        <span>Inicio | Productos | Contacto</span>
+    </div>
+
+    <div class="contenido">
+        <h1>Carros usados en venta</h1>
+        <p class="subtitulo">Elegí un carro que te guste y agregalo a tu lista.</p>
+
+        <div class="lista-carros">
+
+            <div class="tarjeta">
+                <div class="foto-placeholder">Foto de Toyota Corolla</div>
+                <strong>Toyota Corolla</strong>
+                <div class="precio-texto">Q35,000</div>
+                <button onclick="agregar('Toyota Corolla', 35000)">Me interesa</button>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-placeholder">Foto de Honda Civic</div>
+                <strong>Honda Civic</strong>
+                <div class="precio-texto">Q48,000</div>
+                <button onclick="agregar('Honda Civic', 48000)">Me interesa</button>
+            </div>
+
+        </div>
+
+        <div class="seccion-carrito">
+            <h3>🛒 Carros que te interesan:</h3>
+            <ul id="lista-compra"></ul>
+            <p><strong>Total aproximado: Q<span id="total-val">0</span></strong></p>
+        </div>
+
+    </div>
+
+    <script>
+        let total = 0;
+
+        function agregar(nombre, precio) {
+            total += precio;
+            document.getElementById("total-val").innerText = total.toLocaleString();
+
+            let lista = document.getElementById("lista-compra");
+            let item = document.createElement("li");
+            item.innerText = nombre + " - Q" + precio.toLocaleString();
+            lista.appendChild(item);
+        }
+    </script>
+
+</body>
+
+</html>
