@@ -2,214 +2,50 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito - ECO-COMPRAS</title>
+    <title>Carrito de Compras - EcoCompras</title>
     <style>
-        :root {
-            --verde-navbar: #2d8a56; /* Verde oficial de la barra */
-            --verde-botones: #2e7d32;
-            --fondo-gris: #f4f7f6;
-        .header-eco {
-            background-color: #2e7d32;
-            color: white;
-            padding: 15px 20px;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        :root { --verde-eco: #2d8a56; --fondo-gris: #f4f7f6; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--fondo-gris); }
 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--fondo-gris);
-            color: #333;
-        }
+        .navbar { background-color: var(--verde-eco); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; color: white; }
+        .navbar-brand { font-weight: bold; font-size: 1.4rem; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; }
 
-        .navbar {
-            background-color: var(--verde-navbar);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-        }
+        .container { max-width: 800px; margin: 50px auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: var(--verde-eco); border-bottom: 2px solid var(--verde-eco); padding-bottom: 10px; }
 
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .item-carrito { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #eee; }
+        .total-seccion { margin-top: 20px; text-align: right; font-size: 1.5rem; font-weight: bold; color: var(--verde-eco); }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-
-        .active-link {
-            border-bottom: 2px solid white;
-            padding-bottom: 3px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .lista-carros {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .tarjeta {
-            border: 1px solid #ddd;
-            padding: 15px;
-            width: 230px;
-            text-align: center;
-            background: white;
-            border-radius: 6px;
-        }
-
-        .foto-placeholder {
-            background: #f0f0f0;
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed #bbb;
-            margin-bottom: 10px;
-            font-size: 13px;
-            color: #777;
-        }
-
-        .precio-texto {
-            color: var(--verde-botones);
-            font-weight: bold;
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-
-        .btn-interesa {
-            background-color: var(--verde-botones);
-
-        button {
-            background-color: #2e7d32;
-feature/carrito
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            cursor: pointer;
-            width: 100%;
-            border-radius: 4px;
-        }
-
-
-        button:hover {
-            background-color: #1b5e20;
-        }
-
- feature/carrito
-        .seccion-carrito {
-            margin-top: 35px;
-            border-top: 2px solid #eee;
-            padding-top: 20px;
-        }
-
-        #lista-compra {
-            padding-left: 20px;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .btn-vaciar {
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            padding: 5px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 12px;
-        }
+        .btn-vaciar { background: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 20px; }
+        .btn-comprar { background: var(--verde-eco); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; float: right; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-
 <nav class="navbar">
-    <div class="navbar-brand">
-        <span>🌱</span> ECO-COMPRAS
-    </div>
+    <div class="navbar-brand">🌱 ECO-COMPRAS</div>
     <div class="nav-links">
-        <a href="/">Inicio</a>
-        <a href="/productos">Productos</a>
-        <a href="/carrito" class="active-link">Carrito</a>
-        <a href="/nosotros">Nosotros</a>
-        <a href="/contacto">
-    <div class="header-eco">
-        <strong>🌱 ECO-COMPRAS</strong>
-        <span>Inicio | Productos | Contacto</span>
+        <a th:href="@{/}">Inicio</a>
+        <a th:href="@{/productos}">Productos</a>
+        <a th:href="@{/carrito}">Carrito</a>
+        <a th:href="@{/pedro}">Sobre Pedro</a>
+        <a th:href="@{/contacto}">Contacto</a>
     </div>
+</nav>
 
-    <div class="contenido">
-        <h1>Carros usados en venta</h1>
-        <p class="subtitulo">Elegí un carro que te guste y agregalo a tu lista.</p>
-
-        <div class="lista-carros">
-
-            <div class="tarjeta">
-                <div class="foto-placeholder">Foto de Toyota Corolla</div>
-                <strong>Toyota Corolla</strong>
-                <div class="precio-texto">Q35,000</div>
-                <button onclick="agregar('Toyota Corolla', 35000)">Me interesa</button>
-            </div>
-
-            <div class="tarjeta">
-                <div class="foto-placeholder">Foto de Honda Civic</div>
-                <strong>Honda Civic</strong>
-                <div class="precio-texto">Q48,000</div>
-                <button onclick="agregar('Honda Civic', 48000)">Me interesa</button>
-            </div>
-
-        </div>
-
-        <div class="seccion-carrito">
-            <h3>🛒 Carros que te interesan:</h3>
-            <ul id="lista-compra"></ul>
-            <p><strong>Total aproximado: Q<span id="total-val">0</span></strong></p>
-        </div>
-
+<div class="container">
+    <h2>Mi Carrito</h2>
+    <div id="lista-carrito">
     </div>
+    <div class="total-seccion">
+        Total: Q <span id="total-precio">0.00</span>
+    </div>
+    <button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar Carrito</button>
+    <button class="btn-comprar" onclick="finalizarCompra()">Finalizar Compra</button>
+</div>
 
-    <script>
-        let total = 0;
-
-        function agregar(nombre, precio) {
-            total += precio;
-            document.getElementById("total-val").innerText = total.toLocaleString();
-
-            let lista = document.getElementById("lista-compra");
-            let item = document.createElement("li");
-            item.innerText = nombre + " - Q" + precio.toLocaleString();
-            lista.appendChild(item);
-        }
-    </script>
-
-</body>
-
-</html>
+<script>
+    function cargarCarrito() {
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        let contenedor = document.getElementById('lista-carrito');
